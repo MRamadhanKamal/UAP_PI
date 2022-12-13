@@ -65,3 +65,19 @@ while(True):
         except (TypeError, ValueError):
             print("Invalid Input")
             x = input()
+
+    if pilih == 1:
+        # Provinsi
+        linkProv = "https://kodepos-2d475.firebaseio.com/list_propinsi.json"
+        getProv = requests.get(linkProv)
+        prov = getProv.json()
+
+        print('Daftar Provinsi\n')
+
+        for i in prov:
+            print(prov[i])
+
+        namaProv1 = input("\nMasukkan Nama Provinsi\t: ")
+        prov1 = Provinsi(namaProv1.title())
+        prov1.getKeyProv()
+        keyProv = prov1.getKeyProv()
